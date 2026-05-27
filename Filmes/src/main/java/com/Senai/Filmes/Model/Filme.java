@@ -4,7 +4,6 @@ package com.Senai.Filmes.Model;
 import com.Senai.Filmes.Model.Enums.GeneroFilme;
 import jakarta.persistence.*;
 
-
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
