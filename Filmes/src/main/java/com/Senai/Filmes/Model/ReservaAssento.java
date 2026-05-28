@@ -21,4 +21,8 @@ public class ReservaAssento {
     @ManyToOne
     @JoinColumn(name = "reserva_id")
     private Reservas reserva;
+
+    @ManyToOne
+    @JoinColumn(name = "assento_id")
+    private Assento assento;
 }
