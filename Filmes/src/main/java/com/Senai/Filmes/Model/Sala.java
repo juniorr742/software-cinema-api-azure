@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "sala")
+@Table(name = "Salas")
 public class Sala {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -25,6 +25,7 @@ public class Sala {
     private Integer totalAssentos;
 
     @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL, orphanRemoval = true) // Se a sala for alterada ou excluída, todos os assentos serão excluídos. Isso é a conexão com a sala. O ORPHANREMOVAL fala que os assentos estão órfao, sem o pai, então remova eles.
+    //o mappedBy fala quem é 1 na história.
     private List<Assento> assentos = new ArrayList<>();
 
 }
