@@ -1,5 +1,7 @@
 package com.Senai.Filmes.DTO.Response;
 
+import com.Senai.Filmes.Model.Enums.GeneroFilme;
+
 import java.util.UUID;
 
 public record FilmeResponse(
@@ -7,7 +9,7 @@ public record FilmeResponse(
         String titulo,
         String descricao,
         String urlPoster,
-        String genero,
+        GeneroFilme genero,
         Integer duracaoMinutos
 ) {
 }

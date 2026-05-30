@@ -41,7 +41,7 @@ public class Reservas {
     @CreationTimestamp
     private LocalDateTime criadoEm;
 
-    @OneToMany(mappedBy = "reservas", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ReservaAssento> assentos =  new ArrayList<>();
 
 
