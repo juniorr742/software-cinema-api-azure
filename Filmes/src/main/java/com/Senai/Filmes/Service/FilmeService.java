@@ -39,6 +39,25 @@ public class FilmeService {
         return toResponse(filmeRepository.save(filme));
     }
 
+    public FilmeResponse atualizarFilme(UUID id, FilmeRequest filmeRequest){
+        Filme filme = filmeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Filme não encontrado"));
+
+        filme.setTitulo(filmeRequest.titulo());
+        filme.setDescricao(filmeRequest.descricao());
+        filme.setUrlPoster(filmeRequest.urlPoster());
+        filme.setGenero(filmeRequest.genero());
+        filme.setDuracaoMinutos(filmeRequest.duracaoMinutos());
+
+        return toResponse(filmeRepository.save(filme));
+    }
+
+    public void deletarFilme(UUID id){
+        if (!filmeRepository.existsById(id)){
+            throw new EntityNotFoundException("O filme em questão não foi encontrado");
+        }
+        filmeRepository.deleteById(id);
+    }
+
     private FilmeResponse toResponse(Filme filme){
         return new FilmeResponse(filme.getId(),
                 filme.getTitulo(),
