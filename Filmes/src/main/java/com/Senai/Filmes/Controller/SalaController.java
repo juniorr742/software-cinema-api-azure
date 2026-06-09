@@ -49,7 +49,7 @@ public class SalaController {
         return new ResponseEntity<>(salaService.cadastrarSala(salaRequest), HttpStatus.CREATED);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @Operation(summary = "Deletar por id", description = "Rota para deletar por id")
     public ResponseEntity<Void> deletarPorId (@PathVariable UUID id){
         salaService.deletarPorId(id);

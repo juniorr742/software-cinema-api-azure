@@ -20,7 +20,7 @@ public class ReservaAssento {
     @JsonIgnore //Ele faz com que ao ser chamada, essa reservaassento, ele salve só o número de assento e ignora a reserva. Porque aí impede o loop. Isso tudo acontece porque uma tabela referencia a outra, isso SEMPRE para tabelas intermediárias. Pensando na REQUISIÇÃO.
     @ManyToOne
     @JoinColumn(name = "reserva_id")
-    private Reservas reserva;
+    private Reserva reserva;
 
     @ManyToOne
     @JoinColumn(name = "assento_id")

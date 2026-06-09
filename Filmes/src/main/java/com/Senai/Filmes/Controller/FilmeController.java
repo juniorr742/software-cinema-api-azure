@@ -42,17 +42,16 @@ public class FilmeController {
         return new ResponseEntity<>(filmeService.cadastrarFilme(filmeRequest), HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Operation(summary = "Atualizar filme", description = "Atualiza os dados de um filme")
     public ResponseEntity<FilmeResponse> atualizar(@PathVariable UUID id, @RequestBody FilmeRequest filmeRequest){
         return new ResponseEntity<>(filmeService.atualizarFilme(id, filmeRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @Operation(summary = "Deletar Filme", description = "Remove um filme do sistema")
-    public ResponseEntity<FilmeResponse> deletar(@PathVariable UUID id){
+    public ResponseEntity<Void> deletar(@PathVariable UUID id){
         filmeService.deletarFilme(id);
         return new ResponseEntity<>(HttpStatus.OK);
-        //buscarporid, buscra todos, delete
     }
 }

@@ -23,6 +23,10 @@ public class Assento {
     private Integer numero;
 
     @NotNull
+    private boolean status;
+
+
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "sala_id")
     private Sala sala;
