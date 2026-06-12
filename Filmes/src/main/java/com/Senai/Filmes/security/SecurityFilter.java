@@ -24,7 +24,6 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     private IUsuarioRepository usuarioRepository;
 
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = recuperarToken(request);
@@ -40,7 +39,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-
         filterChain.doFilter(request, response);
     }
 
