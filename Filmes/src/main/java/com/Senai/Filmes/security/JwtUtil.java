@@ -57,6 +57,13 @@ public class JwtUtil {
     }
 
     private boolean isTokenExpirado(String token) {
-        return extrairClaim(token, Claims::getExpiration).before(new Date());
+        return Jwts.parser()
+                .verifyWith(getChave())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getExpiration()
+                .before(new Date());
+        //extrairClaim(token, Claims::getExpiration).before(new Date());
     }
 }
