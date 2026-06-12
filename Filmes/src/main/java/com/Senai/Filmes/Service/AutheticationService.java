@@ -37,8 +37,7 @@ public class AutheticationService {
        novoUsuario.setNome(cadastroRequest.nome());
        novoUsuario.setEmail(cadastroRequest.email());
        novoUsuario.setSenha(passworEncoder.encode(cadastroRequest.senha()));
-       novoUsuario.setCargo(Cargo.ADMIN);// vou deixar o cadastro pra nascer como admin temporariamente, assim consigo testar os endpoints
-
+       novoUsuario.setCargo(Cargo.USUARIO);
        usuarioRepository.save(novoUsuario);
 
        String token = jwtUtil.gerarToken(novoUsuario);
