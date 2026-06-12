@@ -116,9 +116,11 @@ public class SessaoService {
     public boolean deletar(UUID id){
         boolean existe = sessaoRepository.existsById(id);
         if (existe){
+            sessaoRepository.deleteById(id);
             return true;
+        }else {
+            return false;
         }
-        return false;
     }
 
     private SessaoResponse toResponse(Sessao sessao){
@@ -131,7 +133,8 @@ public class SessaoService {
                 sessao.getFilme().getDuracaoMinutos());
 
 
-       return new SessaoResponse(sessao.getSala().getId(), filmeResponse,
+       return new SessaoResponse(sessao.getSala().getId(),
+                filmeResponse,
                 sessao.getInicio(),
                 sessao.getFim(),
                 sessao.getPreco());
